@@ -1,0 +1,61 @@
+{% extends 'fronted/base.html' %}
+{% load static %}
+{% block content %}
+ <div class="sidebar">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+
+            <div id="dismiss">
+                <i class="fa fa-arrow-left"></i>
+            </div>
+
+            <ul class="list-unstyled components">
+
+                <li class="{% if request.get_full_path == index_list %}active{% endif%}">
+                    <a href="{% url 'index_list' %}">Home</a>
+                </li>
+                <li class="{% if request.get_full_path == about_list %}active{% endif%}">
+                    <a href="{% url 'about_list' %}">About</a>
+                </li>
+                <li class="{% if request.get_full_path == recipe_list %}active{% endif%}">
+                    <a href="{% url 'recipe_list' %}">Recipe</a>
+                </li>
+                <li class="{% if request.get_full_path == blog_list %}active{% endif%}">
+                    <a href="{% url 'blog_list' %}">Blog</a>
+                </li>
+                <li class="{% if request.get_full_path == contact_list %}active{% endif%}">
+                    <a href="{% url 'contact_list' %}">Contact Us</a>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+<div class="blog">
+<div class="container">
+<div class="row">
+  <div class="col-md-12">
+    <div class="title">
+      <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
+      <h2>Our Blog</h2>
+      <span>when looking at its layout. The point of using Lorem</span>
+    </div>
+  </div>
+</div>
+<div class="row">
+    {% for blog in blogs %}
+  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mar_bottom">
+    <div class="blog_box">
+      <div class="blog_img_box">
+        <figure><img src="/media/{{blog.image}}" alt="#"/>
+         <span>02 FEB 2019</span>
+        </figure>
+      </div>
+      <h3>{{blog.name}}</h3>
+      <p>{{blog.description}}</p>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+</div>
+</div>
+{% endblock %}

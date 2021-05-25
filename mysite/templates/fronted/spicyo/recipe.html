@@ -1,0 +1,64 @@
+{% extends 'fronted/base.html' %}
+{% load static %}
+{% block content %}
+ <div class="sidebar">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+
+            <div id="dismiss">
+                <i class="fa fa-arrow-left"></i>
+            </div>
+
+            <ul class="list-unstyled components">
+
+                <li class="{% if request.get_full_path == index_list %}active{% endif%}">
+                    <a href="{% url 'index_list' %}">Home</a>
+                </li>
+                <li class="{% if request.get_full_path == about_list %}active{% endif%}">
+                    <a href="{% url 'about_list' %}">About</a>
+                </li>
+                <li class="{% if request.get_full_path == recipe_list %}active{% endif%}">
+                    <a href="{% url 'recipe_list' %}">Recipe</a>
+                </li>
+                <li class="{% if request.get_full_path == blog_list %}active{% endif%}">
+                    <a href="{% url 'blog_list' %}">Blog</a>
+                </li>
+                <li class="{% if request.get_full_path == contact_list %}active{% endif%}">
+                    <a href="{% url 'contact_list' %}">Contact Us</a>
+                </li>
+            </ul>
+
+        </nav>
+    </div>
+<section class="resip_section" style="margin-top: 90px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="ourheading">
+                    <h2>Our Recipes</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="owl-carousel owl-theme">
+                {% for  recipe in recipes %}
+                <div class="item">
+                    <div class="product_blog_img">
+                        <img src="/media/{{recipe.image}}" alt="#" />
+                    </div>
+                    <div class="product_blog_cont">
+                        <h3>{{recipe.name}}</h3>
+                        <h4><span class="theme_color">$</span>{{recipe.price}}</h4>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+{% endblock %}
+
