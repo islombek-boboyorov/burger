@@ -138,7 +138,7 @@ def blog_create(request):
     ctx = {
         "form": form
     }
-    return render(request, 'dashboard/blog/form.list', ctx)
+    return render(request, 'dashboard/blog/form.html', ctx)
 
 
 def blog_edit(request, pk):

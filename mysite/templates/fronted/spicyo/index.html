@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="loader_bg">
-    <div class="loader"><img src="{% static 'images/loading.gif' %}" alt="" /></div>
+    <div class="loader"><img src="{% static 'fronted/images/loading.gif' %}" alt="" /></div>
 </div>
 
 <div class="wrapper">
@@ -19,19 +19,19 @@
 
             <ul class="list-unstyled components">
 
-                <li class="{% if request.get_full_path == index_list %}active{% endif%}">
+                <li class="{% if 'index_list' in request.resolver_match.url_name %} active {% endif %}">
                     <a href="{% url 'index_list' %}">Home</a>
                 </li>
-                <li class="{% if request.get_full_path == about_list %}active{% endif%}">
+                <li class="{% if 'about_list' in request.resolver_match.url_name %} active {% endif %}">
                     <a href="{% url 'about_list' %}">About</a>
                 </li>
-                <li class="{% if request.get_full_path == recipe_list %}active{% endif%}">
+                <li class="{% if 'recipe_list' in request.resolver_match.url_name %} active {% endif %}">
                     <a href="{% url 'recipe_list' %}">Recipe</a>
                 </li>
-                <li class="{% if request.get_full_path == blog_list %}active{% endif%}">
+                <li class="{% if 'blog_list' in request.resolver_match.url_name %} active {% endif %}">
                     <a href="{% url 'blog_list' %}">Blog</a>
                 </li>
-                <li class="{% if request.get_full_path == contact_list %}active{% endif%}">
+                <li class="{% if 'contact_list' in request.resolver_match.url_name %} active {% endif %}">
                     <a href="{% url 'contact_list' %}">Contact Us</a>
                 </li>
             </ul>
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="col-md-7">
                                         <div class="slider_image full text_align_center">
-                                            <img class="img-responsive" src="{% static 'images/burger_slide.png' %}" alt="#" />
+                                            <img class="img-responsive" src="{% static 'fronted/images/burger_slide.png' %}" alt="#" />
                                         </div>
                                     </div>
                                 </div>
@@ -76,7 +76,7 @@
                                     </div>
                                     <div class="col-md-7 full text_align_center">
                                         <div class="slider_image">
-                                            <img class="img-responsive" src="{% static 'images/burger_slide.png' %}" alt="#" />
+                                            <img class="img-responsive" src="{% static 'fronted/images/burger_slide.png' %}" alt="#" />
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
       <div class="row">
          <div class="col-md-12">
              <div class="title">
-                <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
+                <i><img src="{% static 'fronted/images/title.png' %}" alt="#"/></i>
                 <h2>About Our Food & Restaurant</h2>
                 <span>It is a long established fact that a reader will be distracted by the readable content of a
                    <br> page when looking at its layout. The point of using Lorem
@@ -169,7 +169,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="title">
-      <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
+      <i><img src="{% static 'fronted/images/title.png' %}" alt="#"/></i>
       <h2>Our Blog</h2>
       <span>when looking at its layout. The point of using Lorem</span>
     </div>
@@ -200,7 +200,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="title">
-      <i><img src="{% static 'images/title.png' %}" alt="#"/></i>
+      <i><img src="{% static 'fronted/images/title.png' %}" alt="#"/></i>
       <h2>Our Client</h2>
     </div>
   </div>
@@ -209,10 +209,10 @@
 
   <div class="col-md-6 offset-md-3">
      <div class="Client_box">
-       <img src="{% static 'images/client.jpg' %}" alt="#"/>
+       <img src="{% static 'fronted/images/client.jpg' %}" alt="#"/>
        <h3>Roock Due</h3>
        <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don’t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn’t anything embarrassing hidden in the middle of text.</p>
-       <i><img src="{% static 'images/client_icon.png' %}" alt="#"/></i>
+       <i><img src="{% static 'fronted/images/client_icon.png' %}" alt="#"/></i>
      </div>
   </div>
 </div>

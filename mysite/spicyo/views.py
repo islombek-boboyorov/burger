@@ -11,7 +11,15 @@ def login_required_decorator(f):
 
 # @login_required_decorator
 def home(request):
-    return render(request, 'fronted/spicyo/index.html')
+    recipes = Recipes.objects.all()
+    blogs = Blog.objects.all()
+    abouts = About.objects.all()
+    ctx = {
+        "recipes": recipes,
+        "blogs": blogs,
+        "abouts": abouts,
+    }
+    return render(request, 'fronted/spicyo/index.html', ctx)
 
 
 def login_pas(request):

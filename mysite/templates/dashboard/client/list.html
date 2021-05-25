@@ -25,7 +25,7 @@
                 <h3 class="card-title">Responsive Hover Table</h3>
 
                 <div class="card-tools">
-                    <a href="#"><div class="btn btn-block btn-success">Add</div></a>
+                    <a href="{% url 'client_add' %}"><div class="btn btn-block btn-success">Add</div></a>
                 </div>
               </div>
               <!-- /.card-header -->
@@ -42,19 +42,19 @@
                       <th>Delete</th>
                     </tr>
                   </thead>
-<!--                  <tbody>-->
-<!--                    {% for author in authors %}-->
-<!--                    <tr>-->
-<!--                      <td>{{ forloop.counter }}</td>-->
-<!--                      <td>{{ author.full_name }}</td>-->
-<!--                      <td>{{ author.description }}</td>-->
-<!--                      <td>{{ author.image }}</td>-->
-<!--                      <td>{{ author.created_at }}</td>-->
-<!--                      <td><a href="{% url 'author_edit' pk=author.id %}"><div class="btn btn-block btn-primary">Edit</div></a></td>-->
-<!--                      <td><a href="{% url 'author_delete' pk=author.id %}"><div class="btn btn-block btn-danger">Delete</div></a></td>-->
-<!--                    </tr>-->
-<!--                    {% endfor %}-->
-<!--                  </tbody>-->
+                  <tbody>
+                    {% for client in clients %}
+                    <tr>
+                      <td>{{ forloop.counter }}</td>
+                      <td>{{ client.full_name }}</td>
+                      <td>{{ client.description }}</td>
+                      <td>{{ client.image }}</td>
+                      <td>{{ client.created_at }}</td>
+                      <td><a href="{% url 'client_edit' pk=client.id %}"><div class="btn btn-block btn-primary">Edit</div></a></td>
+                      <td><a href="{% url 'client_delete' pk=client.id %}"><div class="btn btn-block btn-danger">Delete</div></a></td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
                 </table>
               </div>
               <!-- /.card-body -->

@@ -31,23 +31,23 @@
                     </div>
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                         <div class="img-box">
-                            <figure><img src="{% static 'images/img.jpg' %}" alt="img" /></figure>
+                            <figure><img src="{% static 'fronted/images/img.jpg' %}" alt="img" /></figure>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="footer_logo">
-                          <a href="spicyo/index.html"><img src="{% static 'images/logo1.jpg' %}" alt="logo" /></a>
+                          <a href="{% url 'home' %}"><img src="{% static 'fronted/images/logo1.jpg' %}" alt="logo" /></a>
                         </div>
                     </div>
                     <div class="col-md-12">
                         <ul class="lik">
-                            <li class="{% if request.get_full_path == index_list %}active{% endif %}"><a href="{% url 'index_list' %}">Home</a></li>
-                            <li class="{% if request.get_full_path == about_list %}active{% endif %}">  <a href="{% url 'about_list' %}">About</a></li>
-                            <li class="{% if request.get_full_path == recipe_list %}active{% endif %}"> <a href="{% url 'recipe_list' %}">Recipe</a></li>
-                            <li class="{% if request.get_full_path == blog_list %}active{% endif %}"> <a href="{% url 'blog_list' %}">Blog</a></li>
-                            <li class="{% if request.get_full_path == contact_list %}active{% endif %}"> <a href="{% url 'contact_list' %}">Contact us</a></li>
+                            <li class="{% if 'url_name' in request.resolver_match.url_name %} active {% endif %}"><a href="{% url 'index_list' %}">Home</a></li>
+                            <li class="{% if 'url_name' in request.resolver_match.url_name %} active {% endif %}">  <a href="{% url 'about_list' %}">About</a></li>
+                            <li class="{% if 'url_name' in request.resolver_match.url_name %} active {% endif %}"> <a href="{% url 'recipe_list' %}">Recipe</a></li>
+                            <li class="{% if 'url_name' in request.resolver_match.url_name %} active {% endif %}"> <a href="{% url 'blog_list' %}">Blog</a></li>
+                            <li class="{% if 'url_name' in request.resolver_match.url_name %} active {% endif %}"> <a href="{% url 'contact_list' %}">Contact us</a></li>
                         </ul>
                     </div>
                     <div class="col-md-12">
