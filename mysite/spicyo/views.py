@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from .models import *
+from . import servise
 from .forms import *
 
 
@@ -11,11 +11,13 @@ def login_required_decorator(f):
 
 # @login_required_decorator
 def home(request):
-    recipes = Recipes.objects.all()
-    blogs = Blog.objects.all()
-    abouts = About.objects.all()
+    clients = servise.get_client()
+    recipes = servise.get_recipe()
+    blogs = servise.get_blog()
+    abouts = servise.get_about()
     ctx = {
         "recipes": recipes,
+        "clients": clients,
         "blogs": blogs,
         "abouts": abouts,
     }

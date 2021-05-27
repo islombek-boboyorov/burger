@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from spicyo.models import *
 from spicyo.forms import *
+from spicyo.servise import *
 
 
 def login_required_decorator(f):
@@ -31,7 +32,7 @@ def dashboard_logout(request):
 
 
 def recipe_list(request):
-    recipes = Recipes.objects.all()
+    recipes = get_recipe()
     ctx = {
         "recipes": recipes
     }
@@ -75,7 +76,7 @@ def recipe_delete(request, pk):
 
 
 def about_list(request):
-    abouts = About.objects.all()
+    abouts = get_about()
     ctx = {
         "abouts": abouts
     }
@@ -119,7 +120,7 @@ def about_delete(request, pk):
 
 
 def blog_list(request):
-    blogs = Blog.objects.all()
+    blogs = get_blog()
     ctx = {
         "blogs": blogs
     }
@@ -163,7 +164,7 @@ def blog_delete(request, pk):
 
 
 def client_list(request):
-    clients = Client.objects.all()
+    clients = get_client()
     ctx = {
         "clients": clients
     }
@@ -182,7 +183,7 @@ def client_create(request):
     ctx = {
         "form": form
     }
-    return render(request, 'dashboard/client/form.list', ctx)
+    return render(request, 'dashboard/client/form.html', ctx)
 
 
 def client_edit(request, pk):
